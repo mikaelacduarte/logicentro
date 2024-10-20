@@ -94,12 +94,15 @@ REST_FRAMEWORK = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',  #django.db.backends.mysql
         'NAME': 'dbtransportes',
         'USER': 'root',
-        'PASSWORD': '',  # insira sua senha do MySQL aqui se tiver
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # Ou o IP do seu servidor MySQL, se estiver em outro lugar.
+        'PORT': '3306',       # A porta padrão do MySQL
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
@@ -123,9 +126,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173"  #permite que o domínio do localhost faça requisições ao servidor
-]
+#CORS_ALLOWED_ORIGINS = [
+#    "http://localhost:5173"  #permite que o domínio do localhost faça requisições ao servidor
+#]
+
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 
