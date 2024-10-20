@@ -93,13 +93,16 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'dbtransportes',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',  # ou o IP do servidor
+        'PASSWORD': '',  # insira sua senha do MySQL aqui se tiver
+        'HOST': 'localhost',
         'PORT': '3306',
+    }
 }
+
 
 
 # Password validation
